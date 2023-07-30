@@ -8,7 +8,7 @@ export default function App() {
       <h2 style={{ textAlign: "center" }}>PASSWORD GENERATOR</h2>
       <div className="ranges">
         <div className="innerrange">
-          <label>Password Length : {values.length}</label>
+          <label><b>Password Length : {values.length}</b></label>
           <br />
           <input
             onChange={(e) => {
@@ -20,9 +20,10 @@ export default function App() {
           />
         </div>
         <div className="innerrange">
-          <label>include number</label>
+          <label style={{lineHeight:'40px'}}><b>Include Number</b></label>
           <input
             type="checkbox"
+            style={{height:'20px', width:'20px', position:'absolute', left:'150px',top:'8px'}}
             onChange={() => {
               dispatch({
                 type: types.ADD_TYPES,
@@ -32,8 +33,9 @@ export default function App() {
           />
         </div>
         <div className="innerrange">
-          <label>include text</label>
+          <label style={{lineHeight:'40px'}}><b>Include TEXT</b></label>
           <input
+            style={{height:'20px', width:'20px', position:'absolute', left:'150px',top:'8px'}}
             type="checkbox"
             onChange={() => {
               dispatch({
@@ -44,8 +46,9 @@ export default function App() {
           />
         </div>
         <div className="innerrange">
-          <label>include special char</label>
+          <label style={{lineHeight:'40px'}}><b>SPECIAL CHAR</b></label>
           <input
+           style={{height:'20px', width:'20px', position:'absolute', left:'150px',top:'8px'}}
             type="checkbox"
             onChange={() => {
               dispatch({
@@ -56,7 +59,7 @@ export default function App() {
           />
         </div>
       </div>
-      <div
+      {values.str && <div
         style={{
           border: "2px solid green",
           textAlign: "center",
@@ -64,8 +67,8 @@ export default function App() {
         }}
       >
         <p>{values.canGen ? `${values.pass}` : "can not generate"}</p>
-        <small>strength: {values.canGen && values.str}</small>
-      </div>
+       {values.str ?<small>strength: {values.str}</small>:""}
+      </div>}
 
       <button
         className="btn"

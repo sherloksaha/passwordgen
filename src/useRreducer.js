@@ -31,15 +31,12 @@ function reducerF(state, action) {
 }
 
 function generates(s) {
-  let aa = s.typeVal.length;
   let p = "";
-  console.log("pbefore", p);
   if (s.length < 6 || !s.typeVal.length) {
     return { ...s, canGen: false, pass: "" };
   }
-  console.log(s.length);
   for (let i = 0; i < +s.length; i++) {
-    let ind = Math.floor(Math.random() * aa);
+    let ind = Math.floor(Math.random() * s.typeVal.length);
     if (s.typeVal[ind] == "number") {
       p = p + numbers[Math.floor(Math.random() * numbers.length)];
     } else if (s.typeVal[ind] == "text") {
@@ -48,7 +45,7 @@ function generates(s) {
       p = p + schars[Math.floor(Math.random() * schars.length)];
     }
   }
-  return { ...s, pass: p, str: aa == 3 ? "Strong" : "week" };
+  return { ...s, pass: p, str: s.typeVal.length == 3 ? "Strong" : "week" };
 }
 
 const calculateStr = (state, arr) => {

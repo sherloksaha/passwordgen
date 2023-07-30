@@ -10,6 +10,9 @@
   margin-bottom: 20px;
 }
 .innerrange {
+  position: relative;
+  display: flex;
+  flex-direction: row;
   margin-bottom: 20px;
 }
 .box {
@@ -20,6 +23,11 @@
   flex-direction: column;
   position: relative;
   width: 500px;
+  background-color: coral;
+  border-radius: 5px;
+  border:2px solid black;
+  margin-left: 500px;
+  margin-top: 100px;
 }
 
 .btn {
